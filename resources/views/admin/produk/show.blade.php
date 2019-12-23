@@ -29,16 +29,18 @@
                     </div>
                     <div class="col-md-6">
                     @foreach($data as $p)
-                        <a href="{{route('produk.destroy',$p->id_produk)}}" class=" btn btn-danger float-right"><i class="fa fa-trash"></i></a>
-                        <a href="{{route('produk.edit',$p->id_produk)}}" class=" btn btn-warning float-right"><i class="fa fa-edit"></i></a>
-                        
+                    <form action="{{route('produk.destroy',$p->id_produk)}}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        {{-- <a href="{{route('produk.destroy',$p->id_produk)}}" class=" btn btn-danger float-right"><i class="fa fa-trash"></i></a> --}}
+                        <button type="submit" class="btn btn-outline-danger float-right" title="hapus"><i class="fa fa-trash"></i></button>
+                        <a href="{{route('produk.edit',$p->id_produk)}}" class=" btn btn-outline-warning float-right" title="Edit"><i class="fa fa-edit"></i></a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
-                    <form action="#" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <div class="float-none">
                                 <img width="250" height="" src="{{ url('assets/img/produk/'.$p->gambar) }}"/>

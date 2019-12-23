@@ -62,6 +62,9 @@ class ProdukController extends Controller
                 'harga' =>$request->harga,
                 'stok' =>$request->stok,
                 'berat' =>$request->berat,
+                'diskon' =>$request->diskon,
+                'dibeli' =>$request->dibeli,
+                'tgl_masuk' =>$request->tgl_masuk,
                 'gambar' =>$gambar
             ]);
         
@@ -92,7 +95,13 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data1 = DB::table('tbl_kategori')
+                    ->get();
+        $data = DB::table('tbl_produk')
+                    ->where('id_produk',$id)
+                    ->get();
+
+        return view('admin.produk.edit',compact('data1','data'));
     }
 
     /**
@@ -104,7 +113,50 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image_name = $request->hidden_image;
+        $gambar = $request->file('gambar');
+
+        if($gambar !='') {
+            $file = $request->file('gambar');
+            $dt = Carbon::now();
+            $acak  = $file->getClientOriginalExtension();
+            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
+            $request->file('gambar')->move('/assets/img/produk', $fileName);
+            $gambar = $fileName;
+
+            DB::table('tbl_produk')
+                ->where('id_produk',$id)
+                ->update([
+                    'id_kategori' =>$request->id_kategori,
+                    'nama_produk' =>$request->nama_produk,
+                    'deskripsi' =>$request->deskripsi,
+                    'harga' =>$request->harga,
+                    'stok' =>$request->stok,
+                    'berat' =>$request->berat,
+                    'diskon' =>$request->diskon,
+                    'dibeli' =>$request->dibeli,
+                    'tgl_masuk' =>$request->tgl_masuk,
+                    'gambar' =>$gambar
+                ]);
+
+        } else {
+            
+            DB::table('tbl_produk')
+                ->where('id_produk',$id)
+                ->update([
+                    'id_kategori' =>$request->id_kategori,
+                    'nama_produk' =>$request->nama_produk,
+                    'deskripsi' =>$request->deskripsi,
+                    'harga' =>$request->harga,
+                    'stok' =>$request->stok,
+                    'berat' =>$request->berat,
+                    'diskon' =>$request->diskon,
+                    'dibeli' =>$request->dibeli,
+                    'tgl_masuk' =>$request->tgl_masuk,
+                    'gambar' =>$image_name
+                ]);
+        };
+        return redirect()->route('produk.index');
     }
 
     /**

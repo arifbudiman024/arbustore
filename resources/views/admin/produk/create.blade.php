@@ -26,43 +26,63 @@
             <h3 class="mb-0">Tambah Produk</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('produk.store') }}" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                    <form action="{{ route('produk.store') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="Nama Kategori">Pilih Kategori</label>
-                        <select class="form-control" name="id_kategori" id="exampleSelect1">
-                            @foreach($data as $k)
-                            <option value="{{$k->id_kategori}}">{{$k->nama_kategori}}</option>
-                            @endforeach
-                        </select>
-                    </div>                                   
-                    <div class="form-group">
-                        <label for="Nama Produk">Nama Produk</label>
-                        <input type="text" name="nama_produk" class="form-control">
+                        <div class="form-group">
+                            <label for="Gambar">Gambar</label>
+                            <div>
+                                <img style="border:5px" width="250" height=""/>
+                                <input type="file" name="gambar" class="uploads form-control" style="margin-top: 20px;" >                               
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Nama Kategori">Pilih Kategori</label>
+                            <select class="form-control" name="id_kategori" id="exampleSelect1">
+                                @foreach($data as $k)
+                                <option value="{{$k->id_kategori}}">{{$k->nama_kategori}}</option>
+                                @endforeach
+                            </select>
+                        </div>                                   
+                        <div class="form-group">
+                            <label for="Nama Produk">Nama Produk</label>
+                            <input type="text" name="nama_produk" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Harga">Harga</label>
+                            <input type="text" name="harga" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Tanggal Masuk">Tanggal Masuk</label>
+                            <input type="date" name="tgl_masuk" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Stok">Stok</label>
+                            <input type="text" name="stok" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Berat">Berat</label>
+                            <input type="text" name="berat" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Terjual">Terjual</label>
+                            <input type="text" name="dibeli" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="diskon">Diskon</label>
+                            <input type="text" name="diskon" class="form-control">
+                        </div>
+                    </div>
+                </div>
                     <div class="form-group">
                         <label for="Deskripsi">Deskripsi</label>
                         <textarea class="form-control" name="deskripsi" id="exampleFormControlTextarea1" rows="8"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="Harga">Harga</label>
-                        <input type="text" name="harga" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="Stok">Stok</label>
-                        <input type="text" name="stok" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="Berat">Berat</label>
-                        <input type="text" name="berat" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="Gambar">Gambar</label>
-                        <div>
-                            <img width="200"/>
-                            <input type="file" name="gambar" class="uploads form-control" style="margin-top: 20px;" >
-                        </div>
-                    </div>							
+                    </div>    							
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <a href="{{route('produk.index')}}" class=" btn btn-danger">Batal</a>
                 </form>

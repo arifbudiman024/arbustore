@@ -11,6 +11,12 @@
 |
 */
 
+//Route - Front
+Route::view('/', 'front.beranda');
+Route::view('/shop', 'front.shop');
+
+//--------------------------------------------------------------------------
+
 //Route - Admin
 Route::group(['prefix' => 'admin'], function () {
     
