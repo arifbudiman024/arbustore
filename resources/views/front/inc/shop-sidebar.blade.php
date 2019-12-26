@@ -9,8 +9,9 @@
     </form>
     <h5 class="font-weight-bold pt-3">Categories</h5>
     <ul class="nav nav-list flex-column">
-        <li class="nav-item"><a class="nav-link" href="#">Arts & Crafts</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Automotive</a></li>
+        @foreach($data1 as $k)
+        <li class="nav-item"><a class="nav-link" href="#">{{$k->nama_kategori}}</a></li>
+        {{-- <li class="nav-item"><a class="nav-link" href="#">Automotive</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Baby</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Eletronics</a></li>
@@ -22,9 +23,10 @@
         <li class="nav-item"><a class="nav-link" href="#">Movies & Television</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Sports & Outdoors</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Tools & Home Improvement</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Toys & Games</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Toys & Games</a></li> --}}
+        @endforeach
     </ul>
-    <h5 class="font-weight-bold pt-5">Tags</h5>
+    {{-- <h5 class="font-weight-bold pt-5">Tags</h5>
     <div class="mb-3 pb-1">
         <a href="#"><span class="badge badge-dark badge-sm badge-pill text-uppercase px-2 py-1 mr-1">Nike</span></a>
         <a href="#"><span class="badge badge-dark badge-sm badge-pill text-uppercase px-2 py-1 mr-1">Travel</span></a>
@@ -91,5 +93,5 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> --}}
 </aside>

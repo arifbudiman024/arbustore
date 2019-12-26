@@ -13,7 +13,9 @@
 
 //Route - Front
 Route::view('/', 'front.beranda');
-Route::view('/shop', 'front.shop');
+Route::view('/about-us', 'front.about-us');
+Route::view('/contact-us', 'front.contact-us');
+Route::resource('shop', 'ShopController');
 
 //--------------------------------------------------------------------------
 

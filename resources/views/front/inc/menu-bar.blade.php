@@ -7,7 +7,7 @@
                         <nav class="collapse">
                             <ul class="nav nav-pills" id="mainNav">
                                 <li class="dropdown">
-                                    <a class="dropdown-item dropdown-toggle" href="/">
+                                    <a class="dropdown-item dropdown-toggle @yield('menu-home')" href="/">
                                         Home
                                     </a>
                                     <!-- <ul class="dropdown-menu">
@@ -865,7 +865,7 @@
                                     </ul>
                                 </li> -->
                                 <li class="dropdown">
-                                    <a class="dropdown-item dropdown-toggle active" href="/shop">
+                                    <a class="dropdown-item dropdown-toggle @yield('menu-shop')" href="/shop">
                                         Shop
                                     </a>
                                     <!-- <ul class="dropdown-menu">
@@ -911,12 +911,12 @@
                                     </ul> -->
                                 </li>
                                 <li class="dropdown">
-                                    <a class="dropdown-item dropdown-toggle" href="/about-us">
+                                    <a class="dropdown-item dropdown-toggle @yield('menu-about-us')" href="/about-us">
                                         About Us
                                     </a>
                                 </li>
                                 <li class="dropdown">
-                                    <a class="dropdown-item dropdown-toggle" href="/contact-us">
+                                    <a class="dropdown-item dropdown-toggle @yield('menu-contact-us')" href="/contact-us">
                                         Contact Us
                                     </a>
                                 </li>

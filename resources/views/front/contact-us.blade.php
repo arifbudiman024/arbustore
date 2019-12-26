@@ -1,14 +1,14 @@
 @extends('front.app')
 
 @section('title')
-    Beranda    
+    Contact Us    
 @endsection
 
-@section('menu-home')
+@section('menu-contact-us')
     active    
 @endsection
 
 @section('content')
 
-
+tampilan contact us
 @endsection
